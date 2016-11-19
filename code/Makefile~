@@ -1,0 +1,10 @@
+all:
+	#g++ shake.cpp ../src/JHPWMPCA9685.cpp -I ../src -o ../build/shake -O2 -larmadillo
+	#g++ wave.cpp ../src/JHPWMPCA9685.cpp -I ../src -o ../build/wave -O2 -larmadillo
+	#g++ shake.cpp jetsonGPIO.c ../src/JHPWMPCA9685.cpp -I ../src -o ../build/shake -O2 -larmadillo
+	#g++ facedetect.cpp -lopencv_calib3d -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_highgui -lopencv_imgcodecs -lopencv_imgproc -lopencv_ml -lopencv_objdetect -lopencv_photo -lopencv_shape -lopencv_stitching -lopencv_superres -lopencv_videoio -lopencv_video -lopencv_videostab -o ../build/face
+
+	#g++ face_shake.cpp JHPWMPCA9685.cpp -I ../code  -lopencv_calib3d -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_highgui -lopencv_imgcodecs -lopencv_imgproc -lopencv_ml -lopencv_objdetect -lopencv_photo -lopencv_shape -lopencv_stitching -lopencv_superres -lopencv_videoio -lopencv_video -lopencv_videostab -larmadillo  -O2 -o fsh
+	
+	g++ ccd_inverse.cpp ../src/JHPWMPCA9685.cpp -I ../src -o ../build/ccd -O2 -larmadillo
+
