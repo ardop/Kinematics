@@ -77,311 +77,6 @@ double rad2deg(double rad)
 
 
 
-//mat find_theta1(const mat& t)
-//{
-	//mat t_m=t_map(t);
-	//mat ans;
-	//double nx,ny,nz,ox,oy,oz,ax,ay,az,px,py,pz,num,den;
-	//nx=t_m(0);
-	//ny=t_m(1);
-	//nz=t_m(2);
-	//ox=t_m(3);
-	//oy=t_m(4);
-	//oz=t_m(5);
-	//ax=t_m(6);
-	//ay=t_m(7);
-	//az=t_m(8);
-	//px=t_m(9);
-	//py=t_m(10);
-	//pz=t_m(11);
-
-	//num=-py + l4*oy;
-	//den=px - l4*ox;
-	//double phi= atan2(num,den);
-	//ans<<-phi + atan2(-l1,sqrt(num*num + den*den - l1*l1))<<-phi + atan2(-l1,-sqrt(num*num + den*den - l1*l1));
-	//return ans;
-//}
-
-//mat find_theta2(const mat& t,double theta1)
-//{
-	//mat t_m=t_map(t);
-	//mat ans;
-	//double nx,ny,nz,ox,oy,oz,ax,ay,az,px,py,pz,num,den;
-	//nx=t_m(0);
-	//ny=t_m(1);
-	//nz=t_m(2);
-	//ox=t_m(3);
-	//oy=t_m(4);
-	//oz=t_m(5);
-	//ax=t_m(6);
-	//ay=t_m(7);
-	//az=t_m(8);
-	//px=t_m(9);
-	//py=t_m(10);
-	//pz=t_m(11);
-	//num = cos(theta1)*(tan(theta1)*(py - l4*oy) + px - l4*ox);
-	//den = l4*oz - pz + l0;
-    
-    //ans<<atan2(num,den)<<atan2(-num,-den);
-	//return ans;
-//}
-
-//mat find_theta3(const mat& t,double theta1,double theta2)
-//{
-
-	//mat t_m=t_map(t);
-	//mat ans;
-	//double nx,ny,nz,ox,oy,oz,ax,ay,az,px,py,pz,num,den;
-	//nx=t_m(0);
-	//ny=t_m(1);
-	//nz=t_m(2);
-	//ox=t_m(3);
-	//oy=t_m(4);
-	//oz=t_m(5);
-	//ax=t_m(6);
-	//ay=t_m(7);
-	//az=t_m(8);
-	//px=t_m(9);
-	//py=t_m(10);
-	//pz=t_m(11);
-
-    //num = ox*sin(theta1) - oy*cos(theta1);
-    //den = ox*cos(theta1)*cos(theta2) + oy*sin(theta1)*cos(theta2) + oz*sin(theta2);
-
-    //ans<<atan2(num, den)<<atan2(-num, -den);
-	//return ans;
-//}
-
-//mat find_theta4(const mat& t,double theta1,double theta2,double theta3)
-//{
-	//mat t_m=t_map(t);
-	//mat ans;
-	//double nx,ny,nz,ox,oy,oz,ax,ay,az,px,py,pz,num,den;
-	//nx=t_m(0);
-	//ny=t_m(1);
-	//nz=t_m(2);
-	//ox=t_m(3);
-	//oy=t_m(4);
-	//oz=t_m(5);
-	//ax=t_m(6);
-	//ay=t_m(7);
-	//az=t_m(8);
-	//px=t_m(9);
-	//py=t_m(10);
-	//pz=t_m(11);
-
-    //num = oy*cos(theta1) - ox*sin(theta1);
-    //den = sin(theta3)*(ox*cos(theta1)*sin(theta2) + oy*sin(theta1)*sin(theta2) - oz*cos(theta2));
-    
-    //ans<<atan2(num, den)<<atan2(-num, -den);
-
-//return ans;
-//}
-
-//mat find_theta5(const mat& t,double theta1,double theta2)
-//{
-	//mat t_m=t_map(t);
-	//mat ans;
-	//double nx,ny,nz,ox,oy,oz,ax,ay,az,px,py,pz,num,den;
-	//nx=t_m(0);
-	//ny=t_m(1);
-	//nz=t_m(2);
-	//ox=t_m(3);
-	//oy=t_m(4);
-	//oz=t_m(5);
-	//ax=t_m(6);
-	//ay=t_m(7);
-	//az=t_m(8);
-	//px=t_m(9);
-	//py=t_m(10);
-	//pz=t_m(11);
-
-    //num = ax*cos(theta1)*sin(theta2) + ay*sin(theta1)*sin(theta2) - az*cos(theta2);
-    //den = nx*cos(theta1)*sin(theta2) + ny*sin(theta1)*sin(theta2) - nz*cos(theta2);
-    
-    //ans<<atan2(num, den)<<atan2(-num, -den);
-	//return ans;
-//}
-
-//mat find_all_perm_new_theta(const mat& t)
-//{
-	//mat perm_theta;
-	//mat theta1 = find_theta1(t);
-
-	//mat theta2a = find_theta2(t, theta1(0));
-	//mat theta2b = find_theta2(t, theta1(1));
-
-
-	//mat theta3a = find_theta3(t, theta1(0), theta2a(0));
-	//mat theta3b = find_theta3(t, theta1(0), theta2a(1));
-	//mat theta3c = find_theta3(t, theta1(1), theta2b(0));
-	//mat theta3d = find_theta3(t, theta1(1), theta2b(1));
-
-	///*
-	//mat theta4a1 = find_theta4(t, theta1(0), theta2a(0), theta3a(0));
-	//mat theta4a2 = find_theta4(t, theta1(0), theta2a(0), theta3a(1));
-	//mat theta4b1 = find_theta4(t, theta1(0), theta2a(1), theta3b(0));
-	//mat theta4b2 = find_theta4(t, theta1(0), theta2a(1), theta3b(1));
-	//mat theta4c1 = find_theta4(t, theta1(1), theta2b(0), theta3c(0));
-	//mat theta4c2 = find_theta4(t, theta1(1), theta2b(0), theta3c(1));
-	//mat theta4d1 = find_theta4(t, theta1(1), theta2b(1), theta3d(0));
-	//mat theta4d2 = find_theta4(t, theta1(1), theta2b(1), theta3d(1));
-	//*/
-	//mat theta4a1 = find_theta4(t, theta1(0), theta2a(0), theta3a(0));
-	//mat theta4b1 = find_theta4(t, theta1(0), theta2a(0), theta3a(1));
-	//mat theta4c1 = find_theta4(t, theta1(0), theta2a(1), theta3b(0));
-	//mat theta4d1 = find_theta4(t, theta1(0), theta2a(1), theta3b(1));
-	//mat theta4a2 = find_theta4(t, theta1(1), theta2b(0), theta3c(0));
-	//mat theta4b2 = find_theta4(t, theta1(1), theta2b(0), theta3c(1));
-	//mat theta4c2 = find_theta4(t, theta1(1), theta2b(1), theta3d(0));
-	//mat theta4d2 = find_theta4(t, theta1(1), theta2b(1), theta3d(1));
-
-
-	//mat theta5a = find_theta5(t, theta1(0), theta2a(0));
-	//mat theta5b = find_theta5(t, theta1(0), theta2a(1));
-	//mat theta5c = find_theta5(t, theta1(1), theta2b(0));
-	//mat theta5d = find_theta5(t, theta1(1), theta2b(1));
-
-	////theta1.print("theta1");
-	////theta2a.print("theta2a");
-	////theta2b.print("theta2b");
-	////theta3a.print("theta3a");
-	////theta3b.print("theta3b");
-	////theta3c.print("theta3c");
-	////theta3d.print("theta3d");
-	////theta4a1.print("theta4a1");
-	////theta4a2.print("theta4a2");
-	////theta4b1.print("theta4b1");
-	////theta4b2.print("theta4b2");
-	////theta4c1.print("theta4c1");
-	////theta4c2.print("theta4c2");
-	////theta4d1.print("theta4d1");
-	////theta4d2.print("theta4d2");
-	////theta5a.print("theta5a");
-	////theta5b.print("theta5b");
-	////theta5c.print("theta5c");
-	////theta5d.print("theta5d");
-
-		//perm_theta    <<theta1(0)<<theta2a(0)<<theta3a(0)<<theta5a(0)<<theta4a1(0)<<endr
-					  //<<theta1(0)<<theta2a(0) <<theta3a(0) <<theta5a(0) <<theta4a1(1)<<endr
-					  //<<theta1(0)<<theta2a(0) <<theta3a(0) <<theta5a(1) <<theta4b1(0)<<endr
-					  //<<theta1(0)<<theta2a(0) <<theta3a(0) <<theta5a(1) <<theta4b1(1)<<endr
-					  //<<theta1(0)<<theta2a(0) <<theta3a(1) <<theta5a(0) <<theta4a1(0)<<endr
-					  //<<theta1(0) <<theta2a(0) <<theta3a(1) <<theta5a(0) <<theta4a1(1)<<endr
-					  //<<theta1(0) <<theta2a(0) <<theta3a(1) <<theta5a(1) <<theta4b1(0)<<endr
-					  //<<theta1(0) <<theta2a(0) <<theta3a(1) <<theta5a(1) <<theta4b1(1)<<endr
-					  
-					  //<<theta1(0) <<theta2a(1) <<theta3b(0) <<theta5b(0) <<theta4c1(0)<<endr
-					  //<<theta1(0) <<theta2a(1) <<theta3b(0) <<theta5b(0) <<theta4c1(1)<<endr
-					  //<<theta1(0) <<theta2a(1) <<theta3b(0) <<theta5b(1) <<theta4d1(0)<<endr
-					  //<<theta1(0) <<theta2a(1) <<theta3b(0) <<theta5b(1) <<theta4d1(1)<<endr
-					  //<<theta1(0) <<theta2a(1) <<theta3b(1) <<theta5b(0) <<theta4c1(0)<<endr
-					  //<<theta1(0) <<theta2a(1) <<theta3b(1) <<theta5b(0) <<theta4c1(1)<<endr
-					  //<<theta1(0) <<theta2a(1) <<theta3b(1) <<theta5b(1) <<theta4d1(0)<<endr
-					  //<<theta1(0) <<theta2a(1) <<theta3b(1) <<theta5b(1) <<theta4d1(1)<<endr
-					  
-					  //<<theta1(1) <<theta2b(0) <<theta3c(0) <<theta5c(0) <<theta4a2(0)<<endr
-					  //<<theta1(1) <<theta2b(0) <<theta3c(0) <<theta5c(0) <<theta4a2(1)<<endr
-					  //<<theta1(1) <<theta2b(0) <<theta3c(0) <<theta5c(1) <<theta4b2(0)<<endr
-					  //<<theta1(1) <<theta2b(0) <<theta3c(0) <<theta5c(1) <<theta4b2(1)<<endr
-					  //<<theta1(1) <<theta2b(0) <<theta3c(1) <<theta5c(0) <<theta4a2(0)<<endr
-					  //<<theta1(1) <<theta2b(0) <<theta3c(1) <<theta5c(0) <<theta4a2(1)<<endr
-					  //<<theta1(1) <<theta2b(0) <<theta3c(1) <<theta5c(1) <<theta4b2(0)<<endr
-					  //<<theta1(1) <<theta2b(0) <<theta3c(1) <<theta5c(1) <<theta4b2(1)<<endr
-					 
-					  //<<theta1(1) <<theta2b(1) <<theta3d(0) <<theta5d(0) <<theta4c2(0)<<endr
-					  //<<theta1(1) <<theta2b(1) <<theta3d(0) <<theta5d(0) <<theta4c2(1)<<endr
-					  //<<theta1(1) <<theta2b(1) <<theta3d(0) <<theta5d(1) <<theta4d2(0)<<endr
-					  //<<theta1(1) <<theta2b(1) <<theta3d(0) <<theta5d(1) <<theta4d2(1)<<endr
-					  //<<theta1(1) <<theta2b(1) <<theta3d(1) <<theta5d(0) <<theta4c2(0)<<endr
-					  //<<theta1(1) <<theta2b(1) <<theta3d(1) <<theta5d(0) <<theta4c2(1)<<endr
-					  //<<theta1(1) <<theta2b(1) <<theta3d(1) <<theta5d(1) <<theta4d2(0)<<endr
-					  //<<theta1(1) <<theta2b(1) <<theta3d(1) <<theta5d(1) <<theta4d2(1)<<endr;
-//return perm_theta;
-//}
-
-//mat fk_manual(const mat& kin_angles_test)
-//{
-	//double theta1 = kin_angles_test(0);
-	//double theta2 = kin_angles_test(1);
-	//double theta3 = kin_angles_test(2);
-	//double theta4 = kin_angles_test(3);
-	//double theta5 = kin_angles_test(4);
-
-	//mat a,b,c,d,e,fkmatp;
-	//a<<cos(theta1)<< 0<< sin(theta1)<< 0<<endr<< sin(theta1)<<  0<< -cos(theta1)<< 0<<endr<< 0<< 1<< 0<< l1<<endr<< 0<< 0<< 0<< 1;
-	//b<<cos(theta2)<< 0<< sin(theta2)<< 0<<endr<< sin(theta2)<<  0<< -cos(theta2)<< 0<<endr<< 0<< 1<< 0<< -l2<<endr<< 0<< 0<< 0<< 1;
-	//c<<cos(theta3)<< 0<< sin(theta3)<< 0<<endr<< sin(theta3)<<  0<< -cos(theta3)<< 0<<endr<< 0<< 1<< 0<< -l3<<endr<< 0<< 0<< 0<< 1;
-	//d <<cos(theta4)<< 0<< sin(theta4)<< 0<<endr<< sin(theta4)<<  0<< -cos(theta4)<< 0<<endr<< 0<< 1<< 0<< 0<<endr<< 0<< 0<< 0<< 1;
-	//e <<cos(theta5)<< 0<< sin(theta5)<< 0<<endr<< sin(theta5)<<  0<< -cos(theta5)<< 0<<endr<< 0<< 1<< 0<< l5<<endr<< 0<< 0<< 0<< 1;
-	//fkmatp = a*b*c*d*e;
-	//return fkmatp;
-//}
-
-//mat rotation_matrix(char axis, double angle)
-//{
-	//double co = cos(angle);
-	//double si = sin(angle);
-	
-	//mat q;
-	
-	//// Getting rotations matrices for rotation about a specific axis
-	
-	//if((axis=='z')||(axis=='Z'))
-	//{
-		//q<<co<<-si<<0<<endr<<si<<co<<0<<endr<<0<<0<<1;
-	//}
-	//else if((axis=='Y')||(axis=='y'))
-	//{
-		//q<<co<<0<<si<<endr<<0<<1<<0<<endr<<-si<<0<<co;
-	//}
-	//else if((axis=='X')||(axis=='x'))
-	//{
-		//q<<1<<0<<0<<endr<<0<<co<<-si<<endr<<0<<si<<co;
-	//}
-	
-	//return q;
-//}
-
-//mat find_transformation_matrix(string s, const mat& angles, const mat& coordinates)
-//{
-	//mat grb;
-	//grb.eye(3, 3);
-	
-	////Calculating the final orientation matrix by calculating the individual rotation matrix using Euler angles
-	
-	//char ch;
-	//for(int i=0;i<3;i++)
-	//{
-		//ch = s.at(i);
-		//if(islower(ch))
-		//{
-			////Local rotation. Post multiply rotation matrix
-			//grb = grb*rotation_matrix(ch, angles(i));
-		//}
-		//else
-		//{
-			////Global rotation. Pre multiply rotation matrix
-			//grb = rotation_matrix(ch, angles(i))*grb;
-		//}
-	//}
-	
-	////mat coord;
-	////coord<<x<<endr<<y<<endr<<z;
-	
-	//mat coord;
-	//coord = coordinates.t();
-	
-	//mat tmp = join_rows(grb, coord);
-	//mat tmp2;
-	//tmp2<<0<<0<<0<<1;
-	//mat t = join_cols(tmp, tmp2);
-	
-	//return t;
-	
-	
-//}
-
 bool validate_theta_left(const mat& angles)
 {
 	double theta1 = angles(0);
@@ -425,15 +120,84 @@ double dist(const mat &v1,const mat &v2)
 	return d;
 }
 
-//double norm(const mat &v)
-//{
-	//double n=0;
-	//for(i=0;i<v.n_cols;i++)
-	//{
-		//d=d+pow(v(i),2);
-	//}
-	//return sqrt(d);
-//}
+
+mat calculate_jacobian(const mat& theta)
+{
+
+	float j11, j12, j13, j14, j21, j22, j23, j24, j31, j32, j33, j34, theta1, theta2, theta3, theta4;
+
+	mat J;
+
+ 	theta1 = theta(0);
+	theta2 = theta(1);
+ 	theta3 = theta(2);
+ 	theta4 = theta(3);
+
+ 	// Calculating jacobian
+
+ 	j11 = -l5*sin(theta1)*cos(theta2)*cos(theta3)*sin(theta4) + l5*sin(theta1)*cos(theta4)*sin(theta2) + l3*sin(theta1)*sin(theta2) + l5*cos(theta1)*sin(theta3)*sin(theta4) - l2*cos(theta1);
+ 	j12 = -l5*cos(theta1)*sin(theta2)*cos(theta3)*sin(theta4) - l5*cos(theta1)*cos(theta4)*cos(theta2) - l3*cos(theta1)*cos(theta2);
+ 	j13 = -l5*cos(theta1)*cos(theta2)*sin(theta3)*sin(theta4) + l5*sin(theta1)*cos(theta3)*sin(theta4);
+ 	j14 = l5*cos(theta1)*cos(theta2)*cos(theta3)*cos(theta4) + l5*cos(theta1)*sin(theta4)*sin(theta2) + l5*sin(theta1)*sin(theta3)*cos(theta4);
+
+ 	j21 = l5*cos(theta2)*cos(theta3)*cos(theta1)*sin(theta4) - l5*cos(theta4)*cos(theta1)*sin(theta2) - l3*cos(theta1)*sin(theta2) + l5*sin(theta1)*sin(theta3)*sin(theta4) - l2*sin(theta1);
+ 	j22 = -l5*sin(theta2)*cos(theta3)*sin(theta1)*sin(theta4) - l5*cos(theta4)*sin(theta1)*cos(theta2) - l3*sin(theta1)*cos(theta2);
+ 	j23 = -l5*cos(theta2)*sin(theta3)*sin(theta1)*sin(theta4) - l5*cos(theta1)*cos(theta3)*sin(theta4);
+ 	j24 = l5*cos(theta2)*cos(theta3)*sin(theta1)*cos(theta4) +  l5*sin(theta4)*sin(theta1)*sin(theta2) - l5*cos(theta1)*sin(theta3)*cos(theta4);
+
+ 	j31= 0.0;
+ 	j32 = l5*cos(theta3)*cos(theta2)*sin(theta4) - l5*sin(theta2)*cos(theta4) - l3*sin(theta2);
+ 	j33 = -l5*sin(theta3)*sin(theta2)*sin(theta4);
+ 	j34 = l5*cos(theta3)*sin(theta2)*cos(theta4) - l5*cos(theta2)*sin(theta4);
+
+ 	J << j11 << j12 << j13 << j14 << endr << j21 << j22 << j23 << j24 << endr << j31 << j32 << j33 << j34;
+
+
+ 	return J;
+
+}
+
+mat calculate_pseudo_inverse(const mat& theta_default, const mat& target)
+{
+
+	mat q, J, pJ, a, b, c, d, e, targeti;
+	float alpha, theta1, theta2, theta3, theta4, theta5;
+
+	q = trans(theta_default);
+
+	alpha = 0.01;
+
+	for(int i=0;i<500;i++)
+	{
+		J = calculate_jacobian(q);
+		pJ = pinv(J);
+
+		pJ.print();
+
+		theta1 = q(0);
+		theta2 = q(1);
+		theta3 = q(2);
+		theta4 = q(3);
+		theta5 = 0.0;
+
+		a<<cos(theta1)<< 0<< sin(theta1)<< 0<<endr<< sin(theta1)<<  0<< -cos(theta1)<< 0<<endr<< 0<< 1<< 0<< l1<<endr<< 0<< 0<< 0<< 1;
+		b<<cos(theta2)<< 0<< sin(theta2)<< 0<<endr<< sin(theta2)<<  0<< -cos(theta2)<< 0<<endr<< 0<< 1<< 0<< -l2<<endr<< 0<< 0<< 0<< 1;
+		c<<cos(theta3)<< 0<< sin(theta3)<< 0<<endr<< sin(theta3)<<  0<< -cos(theta3)<< 0<<endr<< 0<< 1<< 0<< -l3<<endr<< 0<< 0<< 0<< 1;
+		d <<cos(theta4)<< 0<< sin(theta4)<< 0<<endr<< sin(theta4)<<  0<< -cos(theta4)<< 0<<endr<< 0<< 1<< 0<< 0<<endr<< 0<< 0<< 0<< 1;
+		e <<cos(theta5)<< 0<< sin(theta5)<< 0<<endr<< sin(theta5)<<  0<< -cos(theta5)<< 0<<endr<< 0<< 1<< 0<< l5<<endr<< 0<< 0<< 0<< 1;
+
+		targeti = p_map(a*b*c*d*e);
+
+		q = q + alpha*pJ*trans(target - targeti);
+
+	}
+
+	target.print("Target:\n");
+	targeti.print("Calculated Target:\n");
+
+	return q;
+
+}
 
 mat calculate_ccd(const mat& theta_default, const mat& t)
 {
