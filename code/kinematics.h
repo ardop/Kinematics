@@ -22,6 +22,8 @@
 #define t3al 0.0
 #define t4bl 0.0
 #define t4al -1.5707
+#define t5bl 1.5707
+#define t5al -1.5707
 
 
 using namespace arma;
@@ -87,19 +89,30 @@ bool validate_theta_left(const mat& angles)
 	
 	int flag = 0;
 	
-	if((theta1<=epsilon1) && (theta1>=-(PI-epsilon1)))
-		flag++;
+	// if((theta1<=epsilon1) && (theta1>=-(PI-epsilon1)))
+	// 	flag++;
 
-	if((theta2<=PI/2+epsilon2) && (theta2>=-alpha2))
-		flag++;
+	// if((theta2<=PI/2+epsilon2) && (theta2>=-alpha2))
+	// 	flag++;
 
-	if((theta3<=PI) && (theta3>=0.0))
-		flag++;
+	// if((theta3<=PI) && (theta3>=0.0))
+	// 	flag++;
 
-	if((theta4<=0) && (theta4>=-PI/2))
-		flag++;
+	// if((theta4<=0) && (theta4>=-PI/2))
+	// 	flag++;
 
-	if((theta5<=PI/2) && (theta5>=-PI/2))
+	// if((theta5<=PI/2) && (theta5>=-PI/2))
+	// 	flag++;
+
+	if(theta1<=t1bl && theta1>=t1al)
+		flag++;
+	if(theta2<=t2bl && theta2>=t2al)
+		flag++;
+	if(theta3<=t3bl && theta3>=t3al)
+		flag++;
+	if(theta4<=t4bl && theta4>=t4al)
+		flag++;
+	if(theta5<=t5bl && theta5>=t5al)
 		flag++;
 		
 	if(flag==5)
@@ -171,8 +184,6 @@ mat calculate_pseudo_inverse(const mat& theta_default, const mat& target)
 	{
 		J = calculate_jacobian(q);
 		pJ = pinv(J);
-
-		pJ.print();
 
 		theta1 = q(0);
 		theta2 = q(1);
