@@ -10,6 +10,8 @@ int main()
 	float x,y,z, theta1, theta2, theta3, theta4, theta5;
 	mat ze;
 	ze << 0.0;
+	double error_threshold = 1.5;
+	
 	while(1)
 	{
 		cout<<"Enter x,y,z values: ";
@@ -19,9 +21,13 @@ int main()
 		target<<x<<y<<z;
 
 		mat theta_default;
+		
+		int iter = 1;
+		double error = 0.0;
 
 		while(true)
 		{
+			
 			mat ar = randu<mat>(1, 5);
 
 			theta1 = (t1bl-t1al)*ar(0) + t1al;
@@ -42,13 +48,32 @@ int main()
 
 			if(validate_theta_left(theta_calc))
 			{
-				cout << "VALID!" << endl;
+				cout << "VALID ANGLES!" << endl;
+				
+				error = calculate_error(target, p_map(calculate_fk_mat(theta_calc)));
+				
+				if(error>=error_threshold)
+				{
+					continue;
+				}
+				
+				cout << "VALID SOLUTION!" << endl;
+				cout << "ERROR: " << error << endl;
 				theta_calc.print("Calculated angles: ");
+				cout << "ITER: " << iter << endl << endl;
 				break;
 			}
 			else
 			{
 				cout << "INVALID" << endl;
+				iter++;
+				
+				if(iter>=1000)
+				{
+					cout << "NO SOLUTION POSSIBLE" << endl;
+					break;
+				}
+
 			}
 		}
 	}

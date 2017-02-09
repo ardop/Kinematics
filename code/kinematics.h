@@ -46,6 +46,30 @@ mat p_map(const mat& t)
 	return ans;
 }
 
+mat calculate_fk_mat(const mat& theta)
+{
+	mat fkmat, a, b, c, d, e;
+	
+	double theta1, theta2, theta3, theta4, theta5;
+	
+	theta1 = theta(0);
+	theta2 = theta(1);
+	theta3 = theta(2);
+	theta4 = theta(3);
+	theta5 = theta(4);
+
+	a<<cos(theta1)<< 0<< sin(theta1)<< 0<<endr<< sin(theta1)<<  0<< -cos(theta1)<< 0<<endr<< 0<< 1<< 0<< l1<<endr<< 0<< 0<< 0<< 1;
+	b<<cos(theta2)<< 0<< sin(theta2)<< 0<<endr<< sin(theta2)<<  0<< -cos(theta2)<< 0<<endr<< 0<< 1<< 0<< -l2<<endr<< 0<< 0<< 0<< 1;
+	c<<cos(theta3)<< 0<< sin(theta3)<< 0<<endr<< sin(theta3)<<  0<< -cos(theta3)<< 0<<endr<< 0<< 1<< 0<< -l3<<endr<< 0<< 0<< 0<< 1;
+	d <<cos(theta4)<< 0<< sin(theta4)<< 0<<endr<< sin(theta4)<<  0<< -cos(theta4)<< 0<<endr<< 0<< 1<< 0<< 0<<endr<< 0<< 0<< 0<< 1;
+	e <<cos(theta5)<< 0<< sin(theta5)<< 0<<endr<< sin(theta5)<<  0<< -cos(theta5)<< 0<<endr<< 0<< 1<< 0<< l5<<endr<< 0<< 0<< 0<< 1;
+
+	fkmat = a*b*c*d*e;
+	
+	return fkmat;
+}
+	
+
 mat round_mat(const mat& m, int precision )
 {
     const int adjustment = pow(10,precision);
@@ -132,6 +156,19 @@ double dist(const mat &v1,const mat &v2)
 	d=sqrt(d);
 	return d;
 }
+
+double calculate_error(const mat&a, const mat &b)
+{
+	double err = 0.0;
+	for(int i=0;i<a.n_cols;i++)
+	{
+		err += pow((a(i)-b(i)), 2);
+	}
+	err = err/a.n_cols;
+	err = sqrt(err);
+	return err;
+}
+		
 
 
 mat calculate_jacobian(const mat& theta)
